@@ -29,8 +29,13 @@ export class Scoreboard {
     return this.data[this.today];
   }
 
-  printScore() {
+  printScore(config: { size: "large" | "small" } = { size: "large" }) {
     const score = this.getScore();
+    let rainbowChar = "█";
+
+    if (config.size === "small") {
+      rainbowChar = "-";
+    }
 
     if (score === 0) {
       console.log("😩");
@@ -40,7 +45,7 @@ export class Scoreboard {
 
     for (let i = 0; i < score; i++) {
       const color = rainbowColors[i % rainbowColors.length];
-      rainbow += chalk.hex(color)(`█`);
+      rainbow += chalk.hex(color)(rainbowChar);
     }
 
     if (score >= rainbowColors.length) {
