@@ -2,4 +2,4 @@
 import { Scoreboard } from "./Scoreboard.js";
 
 const scoreboard = new Scoreboard();
-scoreboard.printScore({ size: "small" });
+scoreboard.printScore();
