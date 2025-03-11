@@ -74,7 +74,6 @@ const answer = readlineSync.question(
 if (answer === "done") {
   scoreboard.awardPoint();
   scoreboard.save();
-  console.log("\n♫ A task complete, you moved your feet, succeeding rainbow ♫");
+  console.log("\nPoint awarded! 🌈");
+  console.log("♫ A task complete, you moved your feet, succeeding rainbow ♫");
 }
-
-scoreboard.printScore();
