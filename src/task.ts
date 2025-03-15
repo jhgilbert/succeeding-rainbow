@@ -65,8 +65,8 @@ const stretchingTasks = [
 const strengthTask = strengthTasks[score % strengthTasks.length];
 const stretchingTask = stretchingTasks[score % stretchingTasks.length];
 
-console.log("\n- " + strengthTask);
-console.log("- " + stretchingTask + "\n");
+console.log("\n- " + stretchingTask);
+console.log("- " + strengthTask + "\n");
 
 const answer = readlineSync.question(
   "Type 'done' if you completed the above.\n"
@@ -75,8 +75,10 @@ const answer = readlineSync.question(
 if (answer === "done") {
   scoreboard.awardPoint();
   scoreboard.save();
+  scoreboard.printScore();
+  if (scoreboard.getScore() < 25) {
+    snooze();
+  }
   console.log("\nPoint awarded! 🌈");
   console.log("♫ A task complete, you moved your feet, succeeding rainbow ♫");
-  scoreboard.printScore();
-  snooze();
 }
