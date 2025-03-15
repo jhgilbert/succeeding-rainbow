@@ -1,25 +1,13 @@
-import fs from "fs";
 import { rainbowColors, uglyColors } from "./colors.js";
 import chalk from "chalk";
-import { fileURLToPath } from "url";
-import path from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const DATA_FILE_PATH = __dirname + "/data.json";
+import { readData, writeData } from "./data.js";
 
 export class Scoreboard {
   data: Record<string, number> = {};
   today: string = new Date().toISOString().split("T")[0];
 
   constructor() {
-    if (!fs.existsSync(DATA_FILE_PATH)) {
-      fs.writeFileSync(DATA_FILE_PATH, JSON.stringify({}));
-      this.data = {};
-    } else {
-      this.data = JSON.parse(fs.readFileSync(DATA_FILE_PATH, "utf-8"));
-    }
+    this.data = readData();
     if (!this.data[this.today]) {
       this.data[this.today] = 0;
     }
@@ -61,6 +49,6 @@ export class Scoreboard {
   }
 
   save() {
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(this.data));
+    writeData(this.data);
   }
 }

@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 import { Scoreboard } from "./Scoreboard.js";
+import { isSnoozed } from "./data.js";
 
-const scoreboard = new Scoreboard();
-scoreboard.printScore();
+if (!isSnoozed()) {
+  const scoreboard = new Scoreboard();
+  scoreboard.printScore();
+}
