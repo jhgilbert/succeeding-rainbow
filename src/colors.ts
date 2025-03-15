@@ -25,3 +25,19 @@ export const rainbowColors = [
   "#FF00FF",
   "#FF80FF",
 ];
+
+const color1 = "#5c5103";
+const color2 = "#19fa00";
+
+export const uglyColors = [
+  color1,
+  color2,
+  color1,
+  color2,
+  color1,
+  color1,
+  color2,
+  color1,
+  color2,
+  color2,
+];

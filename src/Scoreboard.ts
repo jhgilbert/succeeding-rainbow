@@ -1,5 +1,5 @@
 import fs from "fs";
-import { rainbowColors } from "./colors.js";
+import { rainbowColors, uglyColors } from "./colors.js";
 import chalk from "chalk";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -30,29 +30,30 @@ export class Scoreboard {
   }
 
   printScore(config: { size: "large" | "small" } = { size: "large" }) {
-    const score = this.getScore();
-    let rainbowChar = "█";
+    let unitChar = "█";
 
     if (config.size === "small") {
-      rainbowChar = "-";
+      unitChar = "-";
     }
 
-    if (score === 0) {
-      console.log("😩");
-    }
+    const score = this.getScore();
+    let result = "";
 
-    let rainbow = "";
-
-    for (let i = 0; i < score; i++) {
-      const color = rainbowColors[i % rainbowColors.length];
-      rainbow += chalk.hex(color)(rainbowChar);
+    for (let i = 0; i < rainbowColors.length; i++) {
+      let color: string;
+      if (score > i) {
+        color = rainbowColors[i];
+      } else {
+        color = uglyColors[i % uglyColors.length];
+      }
+      result += chalk.hex(color)(unitChar);
     }
 
     if (score >= rainbowColors.length) {
-      rainbow += "🏆";
+      result += "🏆";
     }
 
-    console.log(rainbow);
+    console.log(result);
   }
 
   awardPoint() {
