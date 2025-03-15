@@ -4,9 +4,19 @@
 
 Succeeding Rainbow (SR) is a script that cheers you on from the command line, encouraging you to move your body and stay healthy.
 
-SR can be configured to print your progress banner every time you run a command in your terminal. When you want to add to your progress banner, you can ask SR for a fitness task to complete.
+After every command you run in terminal, you will see a hideous swamp snake:
 
-![screenshot](./screenshot.png)
+![swamp snake](./images/swamp-snake.png)
+
+Your goal is to complete enough tasks to magically turn this swamp snake into a rainbow.
+
+Run `sr-task` on the command line to receive your next assignment, and type `done` once you complete it. One segment of the swamp snake will become a rainbow:
+
+![completed task](./images/completed-task.png)
+
+The swamp snake will hibernate for 30 minutes, leaving you to do your work in peace without any unsettling glimpses of its ghastly countenance. In the meantime, you're still welcome to run `sr-task` ... and you probably should, because the beast is 25 segments long.
+
+Failed in your quest to defeat the snake of sloth? Don't worry, tomorrow is a new day!
 
 ## Setup
 
@@ -32,12 +42,10 @@ Reload your shell for the changes to take effect:
 source ~/.zshrc
 ```
 
-Your progress banner defaults to "😩", since you have made no progress. Sad.
-
 ### Complete a task
 
 To request a task, run `sr-task`. You'll get a fitness task and a stretching task. Once you've completed them, type `done`, and you'll be rewarded with a new color block in your progress banner.
 
-If you don't like the tasks or the length of the banner, you can always change them, then re-run the installation commands above.
+If you don't like the tasks, you can always change them in `src/task.ts`, then re-run `npm run build`.
 
 Complete the full 25-item banner, and you'll get a trophy!
