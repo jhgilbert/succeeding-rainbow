@@ -75,10 +75,10 @@ const answer = readlineSync.question(
 if (answer === "done") {
   scoreboard.awardPoint();
   scoreboard.save();
-  scoreboard.printScore();
   if (scoreboard.getScore() < 25) {
     snooze();
   }
   console.log("\nPoint awarded! 🌈");
   console.log("♫ A task complete, you moved your feet, succeeding rainbow ♫");
+  scoreboard.printScore();
 }
