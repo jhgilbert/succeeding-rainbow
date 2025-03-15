@@ -4,9 +4,14 @@ import { readData, writeData } from "./data.js";
 
 export class Scoreboard {
   data: Record<string, number> = {};
-  today: string = new Date().toISOString().split("T")[0];
+  today: string;
 
   constructor() {
+    const now = new Date();
+    const timeZoneOffset = now.getTimezoneOffset() * 60000;
+    const localISOTime = new Date(now.getTime() - timeZoneOffset).toISOString();
+    this.today = localISOTime.split("T")[0];
+
     this.data = readData();
     if (!this.data[this.today]) {
       this.data[this.today] = 0;
