@@ -25,7 +25,7 @@ export function writeData(data: Record<string, any>) {
 export function snooze(snoozeDurationInMs?: number) {
   const data = readData();
   data.snoozedAt = new Date().getTime();
-  data.snoozeDuration = snoozeDurationInMs || 5 * 60 * 1000;
+  data.snoozeDuration = snoozeDurationInMs || 30 * 60 * 1000;
   writeData(data);
 }
 
