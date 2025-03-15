@@ -4,7 +4,8 @@
   "type": "module",
   "bin": {
     "sr-reminder": "dist/reminder.js",
-    "sr-task": "dist/task.js"
+    "sr-task": "dist/task.js",
+    "sr-status": "dist/status.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
